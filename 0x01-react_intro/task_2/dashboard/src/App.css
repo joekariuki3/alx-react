@@ -10,8 +10,8 @@
   width: 100px;
 }
 .App-body {
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
   min-height: 70vh;
   border-bottom: 5px solid #e0354b;
 }
@@ -19,4 +19,10 @@
 .App-footer {
   text-align: center;
   font-style: italic;
+}
+[data="Priority-default"] {
+  color: blue;
+}
+[data="Priority-urgent"] {
+  color: #e0354b;
 }
