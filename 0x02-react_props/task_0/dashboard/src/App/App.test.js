@@ -3,26 +3,34 @@ import "@testing-library/jest-dom";
 import App from "./App";
 
 describe("App", () => {
-  // test App renders without crashing
-  it("App Renders without crashing", () => {
+  it("renders without crashing", () => {
     render(<App />);
   });
 
-  it("App renders with a header element that has a class App-header", () => {
+  it("renders Notification component that has a paragraph 'Here is the list of notifications' text ", () => {
+    render(<App />);
+    const notificationParagraphElement = screen.getByText(
+      "Here is the list of notifications"
+    );
+    expect(notificationParagraphElement).toBeInTheDocument();
+  });
+
+  it("renders Header component that has a header element with class App-header", () => {
     render(<App />);
     const headerElement = screen.getByRole("banner");
     expect(headerElement).toBeInTheDocument();
     expect(headerElement).toHaveClass("App-header");
   });
 
-  it("App renders with a main element that has a class App-body.", () => {
+  it("renders Login component with a paragraph 'Login to access the full dashboard' text ", () => {
     render(<App />);
-    const bodyElement = screen.getByRole("main");
-    expect(bodyElement).toBeInTheDocument();
-    expect(bodyElement).toHaveClass("App-body");
+    const LoginParagraphElement = screen.getByText(
+      "Login to access the full dashboard"
+    );
+    expect(LoginParagraphElement).toBeInTheDocument();
   });
 
-  it("App renders with a footer element that has a class App-footer", () => {
+  it("renders Footer component with a footer element that has a class App-footer", () => {
     render(<App />);
 
     const footerElement = screen.getByRole("contentinfo");
