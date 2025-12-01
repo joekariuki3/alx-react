@@ -20,4 +20,16 @@ describe("Notifications", () => {
     );
     expect(paragraphElement).toBeInTheDocument();
   });
+
+  it("renders NotificationItem component", () => {
+    render(<Notifications />);
+    const listElement = screen.getByRole("list");
+    expect(listElement.children.length).toBe(3);
+  });
+
+  it("renders NotificationItem component and first child shows correct text content", () => {
+    render(<Notifications />);
+    const firstListItemElement = screen.getByText("New course available");
+    expect(firstListItemElement).toBeInTheDocument();
+  });
 });
