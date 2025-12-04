@@ -6,6 +6,8 @@ import CourseList from "../CourseList/CourseList";
 import PropTypes from "prop-types";
 import { getLatestNotification } from "../utils/utils";
 import { Component } from "react";
+import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBottom";
+import BodySection from "../BodySection/BodySection";
 import "./App.css";
 
 const listCourses = [
@@ -60,9 +62,29 @@ class App extends Component {
           <Header />
           <main className="App-body">
             {this.props.isLoggedIn ? (
-              <CourseList listCourses={listCourses} />
+              <BodySectionWithMarginBottom title="Course list">
+                <CourseList listCourses={listCourses} />
+              </BodySectionWithMarginBottom>
             ) : (
-              <Login />
+              <BodySectionWithMarginBottom title="Log in to continue">
+                <Login />
+                <BodySection title="News from the School">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Curabitur vulputate auctor tellus. Quisque velit massa,
+                    luctus ac augue quis, aliquam imperdiet diam. Nulla
+                    facilisi. Donec eget quam vel nisi consectetur congue in
+                    porttitor risus. Curabitur id massa dignissim, venenatis
+                    quam et, eleifend dui. Morbi id metus felis. Fusce ut massa
+                    eu justo molestie luctus ut quis lacus. Donec id luctus
+                    augue. Nam eleifend mauris eget ultricies ultricies. Fusce
+                    gravida auctor turpis, et efficitur mauris. Aliquam
+                    facilisis ac felis eu condimentum. Vivamus fermentum
+                    sollicitudin lacus in venenatis. Nulla auctor nibh eget ante
+                    consectetur efficitur.
+                  </p>
+                </BodySection>
+              </BodySectionWithMarginBottom>
             )}
           </main>
           <Footer />
