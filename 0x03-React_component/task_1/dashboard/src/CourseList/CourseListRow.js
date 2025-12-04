@@ -2,24 +2,23 @@ import PropTypes from "prop-types";
 import "./CourseListRow.css";
 const CourseListRow = ({ isHeader, textFirstCell, textSecondCell }) => {
   return (
-    <>
+    <tr>
       {isHeader ? (
         !textSecondCell ? (
-          <tr>
-            <th colSpan="2">{textFirstCell}</th>
-          </tr>
+          <th colSpan={2}>{textFirstCell}</th>
         ) : (
-          <tr>
-            <th>{textFirstCell}</th> <th>{textSecondCell}</th>
-          </tr>
+          <>
+            <th>{textFirstCell}</th>
+            <th>{textSecondCell}</th>
+          </>
         )
       ) : (
-        <tr>
+        <>
           <td>{textFirstCell}</td>
           <td>{textSecondCell}</td>
-        </tr>
+        </>
       )}
-    </>
+    </tr>
   );
 };
 
