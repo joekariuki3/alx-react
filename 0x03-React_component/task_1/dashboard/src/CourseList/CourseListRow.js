@@ -1,31 +1,31 @@
 import PropTypes from "prop-types";
 import "./CourseListRow.css";
-const CourseListRow = ({
-  isHeader = false,
-  textFirstCell,
-  textSecondCell = "",
-}) => {
-  textSecondCell = textSecondCell === "" ? null : textSecondCell;
-
-  if (isHeader === false) {
-    return (
-      <tr>
-        <td>{textFirstCell}</td>
-        <td>{textSecondCell}</td>
-      </tr>
-    );
-  }
+const CourseListRow = ({ isHeader, textFirstCell, textSecondCell }) => {
   return (
-    <tr>
-      {textSecondCell === null ? (
-        <th colSpan="2">{textFirstCell}</th>
+    <>
+      {isHeader ? (
+        !textSecondCell ? (
+          <tr>
+            <th colSpan="2">{textFirstCell}</th>
+          </tr>
+        ) : (
+          <tr>
+            <th>{textFirstCell}</th> <th>{textSecondCell}</th>
+          </tr>
+        )
       ) : (
-        <>
-          <th>{textFirstCell}</th> <th>{textSecondCell}</th>
-        </>
+        <tr>
+          <td>{textFirstCell}</td>
+          <td>{textSecondCell}</td>
+        </tr>
       )}
-    </tr>
+    </>
   );
+};
+
+CourseListRow.defaultProps = {
+  isHeader: false,
+  textSecondCell: null,
 };
 
 CourseListRow.prototype = {
